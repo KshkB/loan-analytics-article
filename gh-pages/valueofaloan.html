@@ -1,0 +1,756 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The value of a loan &#8212; My Jupyter Book</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-2 bd-sidebar site-navigation show single-page" id="site-navigation">
+    
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/valueofaloan.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/valueofaloan.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#definition">
+   Definition
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loan-value">
+   Loan value
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loan-value-with-repayments">
+   Loan value with repayments
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loan-lifetime">
+   Loan lifetime
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#critical-repayment-level">
+     Critical repayment level
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-lifetime">
+     The lifetime
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#desired-repayments">
+   Desired repayments
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#continuous-compounding">
+   Continuous compounding
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#continuously-compounded-loan-value">
+     Continuously compounded loan value
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#continuously-compounded-loan-value-with-repayments">
+     Continuously compounded loan value with repayments
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lifetime-of-continuously-compounded-loans">
+     Lifetime of continuously compounded loans
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#critial-repayment-level">
+       Critial repayment level
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#lifetime">
+       Lifetime
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#desired-repayment-amount">
+       Desired repayment amount
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>The value of a loan</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#definition">
+   Definition
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loan-value">
+   Loan value
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loan-value-with-repayments">
+   Loan value with repayments
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loan-lifetime">
+   Loan lifetime
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#critical-repayment-level">
+     Critical repayment level
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-lifetime">
+     The lifetime
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#desired-repayments">
+   Desired repayments
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#continuous-compounding">
+   Continuous compounding
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#continuously-compounded-loan-value">
+     Continuously compounded loan value
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#continuously-compounded-loan-value-with-repayments">
+     Continuously compounded loan value with repayments
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lifetime-of-continuously-compounded-loans">
+     Lifetime of continuously compounded loans
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#critial-repayment-level">
+       Critial repayment level
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#lifetime">
+       Lifetime
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#desired-repayment-amount">
+       Desired repayment amount
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="the-value-of-a-loan">
+<h1>The value of a loan<a class="headerlink" href="#the-value-of-a-loan" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="definition">
+<h2>Definition<a class="headerlink" href="#definition" title="Permalink to this headline">¶</a></h2>
+<p>A loan <span class="math notranslate nohighlight">\(L\)</span> is defined by three parameters:</p>
+<ul class="simple">
+<li><p>the principal amount <span class="math notranslate nohighlight">\((P)\)</span>;</p></li>
+<li><p>the rate of interest <span class="math notranslate nohighlight">\((r)\)</span>;</p></li>
+<li><p>compounding <span class="math notranslate nohighlight">\((n)\)</span>.</p></li>
+</ul>
+<p>It is important to set, at the outset, the units of time used to express the interest rate. Let <span class="math notranslate nohighlight">\(u\)</span> be the unit of time (e.g., it could be days, months, years etc.). Interest is expressed in units <span class="math notranslate nohighlight">\(u\)</span>. Compounding refers to the number of times interest is applied on the loan principal. With compounding set to <span class="math notranslate nohighlight">\(1\)</span>, this means the interest is compounded once every <span class="math notranslate nohighlight">\(u\)</span> times (e.g., once per year, if <span class="math notranslate nohighlight">\(u\)</span> is <em>years</em>). This gives the interpretation of interest as the rate at which the principal value of the loan grows over one unit of time, <span class="math notranslate nohighlight">\(u\)</span>.  More generally, if compounding is <span class="math notranslate nohighlight">\(n\)</span>, then interest <span class="math notranslate nohighlight">\(r\)</span> as expressed per unit <span class="math notranslate nohighlight">\(u\)</span> is applied on the principal <span class="math notranslate nohighlight">\(n\)</span>-many times over a single time period <span class="math notranslate nohighlight">\(u\)</span>. This is equivalent to the interest <span class="math notranslate nohighlight">\(r/n\)</span> being applied every <span class="math notranslate nohighlight">\((1/n)\)</span>-time periods.</p>
+<p><strong>Example.</strong> <em>If <span class="math notranslate nohighlight">\(u\)</span> is years, <span class="math notranslate nohighlight">\(r\)</span> is expressed as “percent per year”. If compounding is <span class="math notranslate nohighlight">\(n = 2\)</span>, then <span class="math notranslate nohighlight">\(r\)</span> is applied twice per year. And so, over a year, the principle <span class="math notranslate nohighlight">\(P\)</span> will grow to <span class="math notranslate nohighlight">\(P(1 + r/2)\)</span> by the first half of the year. By the end of the year, it will be <span class="math notranslate nohighlight">\(P(1 + r/2)^2\)</span>.</em></p>
+<p>The following code generates a <strong>loan card</strong> defining a loan.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">new_loan</span><span class="p">(</span><span class="n">principal</span><span class="p">,</span> <span class="n">interest</span><span class="p">,</span> <span class="n">compounding</span><span class="p">):</span>
+    <span class="n">loan_card</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">interest</span> <span class="o">=</span> <span class="n">interest</span><span class="o">/</span><span class="mi">100</span>
+    
+    <span class="n">loan_card</span><span class="p">[</span><span class="s2">&quot;Principal&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">principal</span>
+    <span class="n">loan_card</span><span class="p">[</span><span class="s2">&quot;Interest rate&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">interest</span>
+    <span class="n">loan_card</span><span class="p">[</span><span class="s2">&quot;Compounding&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">compounding</span>
+    
+    <span class="k">return</span> <span class="n">loan_card</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="loan-value">
+<h2>Loan value<a class="headerlink" href="#loan-value" title="Permalink to this headline">¶</a></h2>
+<p>Let <span class="math notranslate nohighlight">\(\nu_L(t)\)</span> be the value of the loan after <span class="math notranslate nohighlight">\(t\)</span> units of time have elapsed. Here <span class="math notranslate nohighlight">\(L\)</span> refers to the loan which, recall, is defined by the parameters <span class="math notranslate nohighlight">\((P, r, n)\)</span> being the principal, the interest and compounding. At <span class="math notranslate nohighlight">\(t = 0\)</span>, <span class="math notranslate nohighlight">\(\nu_L(0)= P\)</span>. After <span class="math notranslate nohighlight">\(t = 1/n\)</span> units of time have elapsed, the interest <span class="math notranslate nohighlight">\(r\)</span> has been compounded once. This means <span class="math notranslate nohighlight">\(\nu_L(1/n) = P(1 + r/n)\)</span>. And after <span class="math notranslate nohighlight">\(t = 2/n\)</span>-units of elapsed time, <span class="math notranslate nohighlight">\(\nu_L(2/n) = P(1 + r/n)^2\)</span>. After <span class="math notranslate nohighlight">\(t = \lambda/n\)</span> units of elapsed time, <span class="math notranslate nohighlight">\(\nu_L(\lambda/n) = P(1 + r/n)^{\lambda}\)</span>. Hence, for <em>any</em> amount of elapsed time <span class="math notranslate nohighlight">\(t\)</span> we arrive at the analytic expression,</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{align}
+\nu_L(t) = P\left(1 + \frac{r}{n}\right)^{nt}.
+\end{align}
+\]</div>
+<p>In the following code block, code for calculating the loan value <span class="math notranslate nohighlight">\(\nu_L(t)\)</span> is given. This code passes in a loan card from <code class="docutils literal notranslate"><span class="pre">new_loan</span></code> and the elapsed time.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">LoanValue</span><span class="p">(</span><span class="n">loan</span><span class="p">,</span> <span class="n">time</span><span class="p">):</span>
+    
+    <span class="n">principal</span> <span class="o">=</span> <span class="n">loan</span><span class="p">[</span><span class="s1">&#39;Principal&#39;</span><span class="p">]</span>
+    <span class="n">interest</span> <span class="o">=</span> <span class="n">loan</span><span class="p">[</span><span class="s1">&#39;Interest rate&#39;</span><span class="p">]</span>
+    <span class="n">compounding</span> <span class="o">=</span> <span class="n">loan</span><span class="p">[</span><span class="s1">&#39;Compounding&#39;</span><span class="p">]</span>
+    
+    <span class="n">exponent</span> <span class="o">=</span> <span class="n">compounding</span><span class="o">*</span><span class="n">time</span>
+    <span class="n">compounding_factor</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">interest</span><span class="o">/</span><span class="n">compounding</span><span class="p">)</span><span class="o">**</span><span class="n">exponent</span>
+    
+    <span class="k">return</span> <span class="n">principal</span> <span class="o">*</span> <span class="n">compounding_factor</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="loan-value-with-repayments">
+<h2>Loan value with repayments<a class="headerlink" href="#loan-value-with-repayments" title="Permalink to this headline">¶</a></h2>
+<p>Suppose now that regular repayments <span class="math notranslate nohighlight">\(R\)</span> are made on the loan each unit of time <span class="math notranslate nohighlight">\(u\)</span>. E.g., if <span class="math notranslate nohighlight">\(u\)</span> is years, then an <span class="math notranslate nohighlight">\(R\)</span> amount is repaid on the loan each year. Let <span class="math notranslate nohighlight">\(\nu_{L, R}(t)\)</span> denote the value of the loan <span class="math notranslate nohighlight">\(L\)</span> after <span class="math notranslate nohighlight">\(t\)</span> units of elapsed time with a repayment rate of <span class="math notranslate nohighlight">\(R\)</span> per unit time. With the loan <span class="math notranslate nohighlight">\(L\)</span> defined by parameters <span class="math notranslate nohighlight">\((P, r, n)\)</span>, it will grow to <span class="math notranslate nohighlight">\(\nu_L(1) = P(1 + r/n)^n\)</span> after one period <span class="math notranslate nohighlight">\(u\)</span>. At <span class="math notranslate nohighlight">\(t = 1\)</span>, a repayment of <span class="math notranslate nohighlight">\(R\)</span> is made. Hence <span class="math notranslate nohighlight">\(\nu_{L, R}(1) = \nu_L(1) - R\)</span>. Then over the next year, the value of the loan on which interest is applied is <em>not</em> <span class="math notranslate nohighlight">\(\nu_L(1)\)</span> but rather <span class="math notranslate nohighlight">\(\nu_{L, R}(1)\)</span>. And so, at <span class="math notranslate nohighlight">\(t = 2\)</span> we find</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+\nu_{L, R}(2) 
+&amp;= 
+\left(\nu_L(1) - R\right) \left(1 + \frac{r}{n}\right)^n - R
+\\
+&amp;= 
+\nu_L(2) - R\left(1 + \frac{r}{n}\right)^n - R.
+\end{align}
+\end{split}\]</div>
+<p>Set for convenience <span class="math notranslate nohighlight">\(z = (1 + r/n)^n\)</span>. Note that the expression for the loan value simplifies to <span class="math notranslate nohighlight">\(\nu_L(t) = Pz^t\)</span>. As for the repaid loan value, at <span class="math notranslate nohighlight">\(t = 2\)</span> this becomes <span class="math notranslate nohighlight">\(\nu_{L, R}(2) = Pz^2 - R( 1 + z)\)</span>. With a little thought, the general analytic expression for the repaid loan value is,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+\nu_{L, R}(t)
+&amp;=
+Pz^t - R\left( 1 + z + \cdots + z^{t-1}\right)
+\\
+&amp;=
+Pz^t - R\frac{1 - z^t}{1-z}
+\end{align}
+\end{split}\]</div>
+<p>where in the latter we have used the analytic continuation over the domain <span class="math notranslate nohighlight">\(\{z\in \mathbb R\mid z&gt;0\}\)</span>  of a familiar algebraic identity. Note that <span class="math notranslate nohighlight">\(z &gt; 0\)</span> whenever the interest <span class="math notranslate nohighlight">\(r &gt; 0\)</span>.</p>
+<p><strong>Note.</strong> <em>If <span class="math notranslate nohighlight">\(R = 0\)</span> above, then we simply recover the loan value <span class="math notranslate nohighlight">\(\nu_L(t)\)</span> as expected, i.e., <span class="math notranslate nohighlight">\(\nu_{L, 0}(t) = \nu_L(t)\)</span>.</em></p>
+<p>Code implementing the loan value with repayments is as follows.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">LoanWithRepayments</span><span class="p">(</span><span class="n">loan</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">repayments</span><span class="p">):</span>
+    <span class="n">interest</span> <span class="o">=</span> <span class="n">loan</span><span class="p">[</span><span class="s1">&#39;Interest rate&#39;</span><span class="p">]</span>
+    <span class="n">compounding</span> <span class="o">=</span> <span class="n">loan</span><span class="p">[</span><span class="s1">&#39;Compounding&#39;</span><span class="p">]</span>
+    <span class="n">z_factor</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">interest</span><span class="o">/</span><span class="n">compounding</span><span class="p">)</span><span class="o">**</span><span class="n">compounding</span>
+    
+    <span class="n">loan_value</span> <span class="o">=</span> <span class="n">LoanValue</span><span class="p">(</span><span class="n">loan</span><span class="p">,</span> <span class="n">time</span><span class="p">)</span>
+    <span class="n">repayments_value</span> <span class="o">=</span> <span class="n">repayments</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">z_factor</span><span class="o">**</span><span class="n">time</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">z_factor</span><span class="p">)</span>
+    
+    <span class="n">val</span> <span class="o">=</span> <span class="n">loan_value</span> <span class="o">-</span> <span class="n">repayments_value</span>
+    <span class="k">if</span> <span class="n">val</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">val</span>
+    <span class="k">return</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="loan-lifetime">
+<h2>Loan lifetime<a class="headerlink" href="#loan-lifetime" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="critical-repayment-level">
+<h3>Critical repayment level<a class="headerlink" href="#critical-repayment-level" title="Permalink to this headline">¶</a></h3>
+<p>The value of a loan <span class="math notranslate nohighlight">\(L\)</span> changes exponentially in time. If no repayments are made, the lifetime of <span class="math notranslate nohighlight">\(L\)</span> is infinite, i.e., it will never be repaid. Indeed, its lifetime will remain inifite if at least a certain amount of repayments are not made per unit of time.</p>
+<p><strong>Definition.</strong> <em>The minimum amount of repayment on the loan per unit time, ensuring the loan will eventually be fully repaid, is refered to as the <strong>critical repayment level</strong>.</em></p>
+<p>The critical repayment level can be found as follows. The condition that a loan be fully repaid is simply the requirement that the value of the loan <span class="math notranslate nohighlight">\(\nu_L(t) = Pz^t\)</span> grows more slowly than the value of repayments <span class="math notranslate nohighlight">\(R\frac{1 - z^t}{1-z}\)</span>. That is, the value <span class="math notranslate nohighlight">\(\nu_{R, L}(t)\)</span> is a positive and decreasing as a function of elapsed time. As <span class="math notranslate nohighlight">\(\nu_{L, R}(t)\)</span> is given analytically, the condition that it be decreasing is a condition on its gradient. That is,</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{align}
+\left.\frac{\partial \nu_{L, R}(t)}{\partial t}\right|_{t = t_0}
+&lt; 0
+\end{align}
+\]</div>
+<p>for all <span class="math notranslate nohighlight">\(t_0 &gt; 0\)</span>. The above inequality can be written,</p>
+<p>\begin{align}
+t_0z^{t_0-1} \left( P + \frac{R}{1-z}\right) &lt; 0
+\end{align}</p>
+<p>for all <span class="math notranslate nohighlight">\(t_0\)</span>. This can only hold if <span class="math notranslate nohighlight">\(P + \frac{R}{1-z} &lt; 0\)</span>, i.e., for <span class="math notranslate nohighlight">\(R &gt; (z-1)P\)</span>. The <strong>critical repayment level</strong>, denoted <span class="math notranslate nohighlight">\(R_{crit.}\)</span>, is therefore</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{align}
+R_{crit.} = (z-1)P = \left( \left(1 + \frac{r}{n}\right)^n - 1\right)P.
+\end{align}
+\]</div>
+<p>If <span class="math notranslate nohighlight">\(R &lt; R_{crit.}\)</span>, the loan <span class="math notranslate nohighlight">\(L\)</span> will never be fully repaid.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">criticalLevel</span><span class="p">(</span><span class="n">loan</span><span class="p">):</span>
+    <span class="n">principal</span> <span class="o">=</span> <span class="n">loan</span><span class="p">[</span><span class="s1">&#39;Principal&#39;</span><span class="p">]</span>
+    <span class="n">interest</span> <span class="o">=</span> <span class="n">loan</span><span class="p">[</span><span class="s1">&#39;Interest rate&#39;</span><span class="p">]</span>
+    <span class="n">compounding</span> <span class="o">=</span> <span class="n">loan</span><span class="p">[</span><span class="s1">&#39;Compounding&#39;</span><span class="p">]</span>
+    <span class="n">z_factor</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">interest</span><span class="o">/</span><span class="n">compounding</span><span class="p">)</span><span class="o">**</span><span class="n">compounding</span>
+    
+    <span class="k">return</span> <span class="p">(</span><span class="n">z_factor</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">principal</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="the-lifetime">
+<h3>The lifetime<a class="headerlink" href="#the-lifetime" title="Permalink to this headline">¶</a></h3>
+<p>If <span class="math notranslate nohighlight">\(t_0\)</span> denotes the time elapsed until the loan with repayments is fully repaid, then <span class="math notranslate nohighlight">\(t_0\)</span> is equivalently the elapsed time such that <span class="math notranslate nohighlight">\(\nu_{L, R}(t_0) = 0\)</span>. With the analytic expression for <span class="math notranslate nohighlight">\(\nu_{L, R}(t)\)</span> above, setting <span class="math notranslate nohighlight">\(\nu_{L, R}(t_0) = 0\)</span> and solving for <span class="math notranslate nohighlight">\(t_0\)</span> gives,</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{align}
+t_0 = \frac{1}{\log z}\big(\log R - \log((1-z)P+R)\big).
+\end{align}
+\]</div>
+<p>See that as <span class="math notranslate nohighlight">\(R\)</span> limits to the critical repayment value <span class="math notranslate nohighlight">\(R \rightarrow R_{crit.}\)</span>, <span class="math notranslate nohighlight">\(t_0\)</span> limits to <span class="math notranslate nohighlight">\(+\infty\)</span>. And so the lifetime of the loan tends toward infinity as the repayment amount tends to the critical level, as expected.</p>
+<p>The following code returns the lifetime of a loan with repayments, provided the repayments are above the critical level.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">log</span>
+
+<span class="k">def</span> <span class="nf">LoanLifetime</span><span class="p">(</span><span class="n">loan</span><span class="p">,</span> <span class="n">repayments</span><span class="p">):</span>
+    <span class="n">principal</span> <span class="o">=</span> <span class="n">loan</span><span class="p">[</span><span class="s1">&#39;Principal&#39;</span><span class="p">]</span>
+    <span class="n">interest</span> <span class="o">=</span> <span class="n">loan</span><span class="p">[</span><span class="s1">&#39;Interest rate&#39;</span><span class="p">]</span>
+    <span class="n">compounding</span> <span class="o">=</span> <span class="n">loan</span><span class="p">[</span><span class="s1">&#39;Compounding&#39;</span><span class="p">]</span>
+    <span class="n">z_factor</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">interest</span><span class="o">/</span><span class="n">compounding</span><span class="p">)</span><span class="o">**</span><span class="n">compounding</span>
+    
+    <span class="k">if</span> <span class="n">repayments</span> <span class="o">&lt;=</span> <span class="n">criticalLevel</span><span class="p">(</span><span class="n">loan</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Infinite&quot;</span><span class="p">)</span>
+        <span class="k">return</span> 
+    <span class="k">return</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">log</span><span class="p">(</span><span class="n">z_factor</span><span class="p">))</span><span class="o">*</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="n">repayments</span><span class="p">)</span> <span class="o">-</span> <span class="n">log</span><span class="p">((</span><span class="mi">1</span><span class="o">-</span><span class="n">z</span><span class="p">)</span><span class="o">*</span><span class="n">principal</span> <span class="o">+</span> <span class="n">repayments</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="desired-repayments">
+<h2>Desired repayments<a class="headerlink" href="#desired-repayments" title="Permalink to this headline">¶</a></h2>
+<p>If an amount of time elapsed is specified after which the loan ought to be repaid, what should the period repayments be? The answer to this question can be obtained immediately upon inspection of the repaid loan value <span class="math notranslate nohighlight">\(\nu_{L, R}(t)\)</span>. Recall that <em>any</em> elapsted time <span class="math notranslate nohighlight">\(t_0&gt;0\)</span> can be specified. As long as <span class="math notranslate nohighlight">\(t_0 &lt; \infty\)</span>, the desired, periodic repayments, denoted <span class="math notranslate nohighlight">\(R_{desired}\)</span>, will be greater than the critical repayment level <span class="math notranslate nohighlight">\(R_{crit.}\)</span>. And so, if <span class="math notranslate nohighlight">\(t_0\)</span> denotes the time elapsed after which the loan must be fully repaid, then <span class="math notranslate nohighlight">\(R_{desired}\)</span> is obtained by solving for <span class="math notranslate nohighlight">\(R_{desired}\)</span> in the equation <span class="math notranslate nohighlight">\(\nu_{L, R_{desired}}(t_0) = 0\)</span>. It is given by,</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{align}
+R_{desired} = P \frac{z^{t_0}(1-z)}{1 - z^{t_0}}.
+\end{align}
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">DesiredRepayments</span><span class="p">(</span><span class="n">loan</span><span class="p">,</span> <span class="n">time</span><span class="p">):</span>
+    <span class="n">principal</span> <span class="o">=</span> <span class="n">loan</span><span class="p">[</span><span class="s1">&#39;Principal&#39;</span><span class="p">]</span>
+    <span class="n">interest</span> <span class="o">=</span> <span class="n">loan</span><span class="p">[</span><span class="s1">&#39;Interest rate&#39;</span><span class="p">]</span>
+    <span class="n">compounding</span> <span class="o">=</span> <span class="n">loan</span><span class="p">[</span><span class="s1">&#39;Compounding&#39;</span><span class="p">]</span>
+    <span class="n">z_factor</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">interest</span><span class="o">/</span><span class="n">compounding</span><span class="p">)</span><span class="o">**</span><span class="n">compounding</span>
+    
+    <span class="k">return</span> <span class="n">principal</span><span class="o">*</span><span class="p">(</span><span class="n">z_factor</span><span class="o">**</span><span class="n">time</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">z_factor</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">z_factor</span><span class="o">**</span><span class="n">time</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="continuous-compounding">
+<h2>Continuous compounding<a class="headerlink" href="#continuous-compounding" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="continuously-compounded-loan-value">
+<h3>Continuously compounded loan value<a class="headerlink" href="#continuously-compounded-loan-value" title="Permalink to this headline">¶</a></h3>
+<p>The exponential function has many equivalent characterisations. One relevent characterisation for our purposes here is as the limit,</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{align}
+Ae^{rt} = \lim_{n \rightarrow \infty} A\left(1 + \frac{r}{n}\right)^{nt}.
+\end{align}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(A, r\)</span> and <span class="math notranslate nohighlight">\(t\)</span> are independent of <span class="math notranslate nohighlight">\(n\)</span>. Note the similarity with the expression for loan value <span class="math notranslate nohighlight">\(\nu_L(t)\)</span>. The limit <span class="math notranslate nohighlight">\(n \rightarrow \infty\)</span> represents the interest being compounded infinitely many times per unit time, <span class="math notranslate nohighlight">\(u\)</span>. In this event it is said to be compounded <em>continuously</em>. The parameters <span class="math notranslate nohighlight">\((P, r, \infty)\)</span> defines a loan <span class="math notranslate nohighlight">\(L_\infty\)</span> with continuously compounded interest.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">new_loan_cts</span><span class="p">(</span><span class="n">principal</span><span class="p">,</span> <span class="n">interest</span><span class="p">):</span>
+    <span class="n">loan_card</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">interest</span> <span class="o">=</span> <span class="n">interest</span><span class="o">/</span><span class="mi">100</span>
+    
+    <span class="n">loan_card</span><span class="p">[</span><span class="s2">&quot;Principal&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">principal</span>
+    <span class="n">loan_card</span><span class="p">[</span><span class="s2">&quot;Interest rate&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">interest</span>
+    
+    <span class="k">return</span> <span class="n">loan_card</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Using the above characterisation of the exponential we see that the value of a continuously compounded loan <span class="math notranslate nohighlight">\(L_\infty\)</span> is,</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{align}
+\nu_{L_\infty}(t) = Pe^{rt}.
+\end{align}
+\]</div>
+<p>To express the above in terms of limits, let <span class="math notranslate nohighlight">\(L_n\)</span> denote the loan <span class="math notranslate nohighlight">\((P, r, n)\)</span>. Let <span class="math notranslate nohighlight">\(L_\infty\)</span> denote its continuously compounded counterpart <span class="math notranslate nohighlight">\((P, r, \infty)\)</span>. Then,</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{align}
+\nu_{L_\infty}(t) = \lim_{n\rightarrow \infty}\nu_{L_n}(t).
+\end{align}
+\]</div>
+<p>With the exponential function, the value of a continuously compounded loan can be calculated straightforwardly.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">exp</span>
+
+<span class="k">def</span> <span class="nf">cts_LoanValue</span><span class="p">(</span><span class="n">cts_loan</span><span class="p">,</span> <span class="n">time</span><span class="p">):</span>
+    <span class="n">principal</span> <span class="o">=</span> <span class="n">cts_loan</span><span class="p">[</span><span class="s2">&quot;Principal&quot;</span><span class="p">]</span>
+    <span class="n">interest</span> <span class="o">=</span> <span class="n">cts_loan</span><span class="p">[</span><span class="s2">&quot;Interest rate&quot;</span><span class="p">]</span>
+    
+    <span class="k">return</span> <span class="n">princpal</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="n">interest</span><span class="o">*</span><span class="n">time</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="continuously-compounded-loan-value-with-repayments">
+<h3>Continuously compounded loan value with repayments<a class="headerlink" href="#continuously-compounded-loan-value-with-repayments" title="Permalink to this headline">¶</a></h3>
+<p>The expression of the value of the continuously compounded loans <span class="math notranslate nohighlight">\(\nu_{L_\infty}(t)\)</span> as a limit is suggestive of the general case where periodic repayments are made. Indeed, we can now simply <em>define</em>,</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{align}
+\nu_{L_\infty, R}(t) := \lim_{n\rightarrow \infty} \nu_{L_n, R}(t).
+\end{align}
+\]</div>
+<p>It remains to see that the above limit is well defined. Recall that <span class="math notranslate nohighlight">\(\nu_{L_n, R}(t) = \nu_{L_n}(t) - R\frac{1 - z^t}{1-z}\)</span>. The limit <span class="math notranslate nohighlight">\(\lim_{n\rightarrow \infty} \nu_{L_n, R}(t)\)</span> will be well-defined if each summand is well-defined. We know already that the first summand is well defined and limits to <span class="math notranslate nohighlight">\(\nu_{L_\infty}(t)\)</span>. As for the second, recall that <span class="math notranslate nohighlight">\(z = (1 + r/n)^n\)</span>. This means <span class="math notranslate nohighlight">\(\lim_{n\rightarrow \infty}z = e^r\)</span>. And so, as long as <span class="math notranslate nohighlight">\(r&gt; 0\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{align}
+\lim_{n \rightarrow\infty} R\frac{1 - z^t}{1-z}
+=
+R\frac{1 - e^{rt}}{1 - e^r}.
+\end{align}
+\]</div>
+<p>Hence the value of a continuously compounded loan with period repayments <span class="math notranslate nohighlight">\(R\)</span> is given by the expression,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+\nu_{L_\infty, R}(t) 
+&amp;= \lim_{n\rightarrow \infty} \nu_{L_n, R}(t)
+\\
+&amp;=
+Pe^{rt} - R\frac{1 - e^{rt}}{1 - e^r}.
+\end{align}
+\end{split}\]</div>
+<p>The value <span class="math notranslate nohighlight">\(\nu_{L_\infty,R}(t)\)</span> is coded below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cts_LoanWithRepayments</span><span class="p">(</span><span class="n">cts_loan</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">repayment</span><span class="p">):</span>
+    <span class="n">loan_val</span> <span class="o">=</span> <span class="n">cts_LoanValue</span><span class="p">(</span><span class="n">cts_loan</span><span class="p">,</span> <span class="n">time</span><span class="p">)</span>
+    
+    <span class="n">interest</span> <span class="o">=</span> <span class="n">cts_loan</span><span class="p">[</span><span class="s2">&quot;Interest rate&quot;</span><span class="p">]</span>
+    <span class="n">repayment_val</span> <span class="o">=</span> <span class="n">repayment</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">exp</span><span class="p">(</span><span class="n">interest</span><span class="o">*</span><span class="n">time</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">exp</span><span class="p">(</span><span class="n">interest</span><span class="p">))</span>
+    <span class="n">val</span> <span class="o">=</span> <span class="n">loan_val</span> <span class="o">-</span> <span class="n">repayment_val</span>
+    
+    <span class="k">if</span> <span class="n">val</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">val</span>
+    <span class="k">return</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="lifetime-of-continuously-compounded-loans">
+<h3>Lifetime of continuously compounded loans<a class="headerlink" href="#lifetime-of-continuously-compounded-loans" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="critial-repayment-level">
+<h4>Critial repayment level<a class="headerlink" href="#critial-repayment-level" title="Permalink to this headline">¶</a></h4>
+<p>As in the discrete (non-continuous) case, the critical repayment level can be found by inspecting the differential inequality <span class="math notranslate nohighlight">\(\partial \nu_{L_\infty, R}(t)/\partial t|_{t = t_0} &lt; 0\)</span> for al <span class="math notranslate nohighlight">\(t_0&gt;0\)</span>. Doing so leads to,</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{align}
+R_{crit.} 
+= 
+(e^r - 1) P.
+\end{align}
+\]</div>
+<p>With <span class="math notranslate nohighlight">\(r&gt; 0\)</span>, note that <span class="math notranslate nohighlight">\(e^r &gt; 1\)</span>. Hence <span class="math notranslate nohighlight">\(R_{crit.}\)</span> will always be positive.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cts_criticalLevel</span><span class="p">(</span><span class="n">cts_loan</span><span class="p">):</span>
+    <span class="n">principal</span> <span class="o">=</span> <span class="n">cts_loan</span><span class="p">[</span><span class="s2">&quot;Principal&quot;</span><span class="p">]</span>
+    <span class="n">interest</span> <span class="o">=</span> <span class="n">cts_loan</span><span class="p">[</span><span class="s2">&quot;Interest rate&quot;</span><span class="p">]</span>
+    
+    <span class="k">return</span> <span class="p">(</span><span class="n">exp</span><span class="p">(</span><span class="n">interest</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">principal</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="lifetime">
+<h4>Lifetime<a class="headerlink" href="#lifetime" title="Permalink to this headline">¶</a></h4>
+<p>Recall, the lifetime of a loan <span class="math notranslate nohighlight">\(L\)</span> is the elapsed time <span class="math notranslate nohighlight">\(t_0\)</span> such that <span class="math notranslate nohighlight">\(\nu_{L, R}(t_0) = 0\)</span>. The same notion holds for continuously compounded loans <span class="math notranslate nohighlight">\(L_\infty\)</span>. The loan lifetime is the elapsed time <span class="math notranslate nohighlight">\(t_0\)</span> such that <span class="math notranslate nohighlight">\(\nu_{L_\infty, R}(t_0) = 0\)</span>. It can be expressed analytically as follows,</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{align}
+t_0
+=
+\frac{1}{r} \left(\log R - \log\left((1-e^r)P + R\right)\right).
+\end{align}
+\]</div>
+<p>As in the non-continuous case, as <span class="math notranslate nohighlight">\(R \rightarrow R_{crit.}\)</span>, <span class="math notranslate nohighlight">\(t_0 \rightarrow +\infty\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cts_LoanLifetime</span><span class="p">(</span><span class="n">cts_loan</span><span class="p">,</span> <span class="n">repayment</span><span class="p">):</span>
+    <span class="n">principal</span> <span class="o">=</span> <span class="n">cts_loan</span><span class="p">[</span><span class="s2">&quot;Principal&quot;</span><span class="p">]</span>
+    <span class="n">interest</span> <span class="o">=</span> <span class="n">cts_loan</span><span class="p">[</span><span class="s2">&quot;Interest rate&quot;</span><span class="p">]</span>
+    <span class="n">crit_level</span> <span class="o">=</span> <span class="n">cts_criticalLevel</span><span class="p">(</span><span class="n">cts_loan</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">repayment</span> <span class="o">&lt;</span> <span class="n">crit_level</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Infinite&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">interest</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="n">repayment</span><span class="p">)</span> <span class="o">-</span> <span class="n">log</span><span class="p">((</span><span class="mi">1</span><span class="o">-</span><span class="n">exp</span><span class="p">(</span><span class="n">interest</span><span class="p">))</span><span class="o">*</span><span class="n">principal</span> <span class="o">+</span> <span class="n">repayment</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="desired-repayment-amount">
+<h4>Desired repayment amount<a class="headerlink" href="#desired-repayment-amount" title="Permalink to this headline">¶</a></h4>
+<p>In order to ensure the continuously compounded loan will be repaid within a specified, elapsed time <span class="math notranslate nohighlight">\(t_0\)</span>, the desired repayment amount is</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{align}
+R_{desired} 
+=
+P \frac{e^{rt_0} (1- e^r)}{1 - e^{rt_0}}.
+\end{align}
+\]</div>
+<p>This is directly analogous to the discrete case above.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">cts_DesiredRepayment</span><span class="p">(</span><span class="n">cts_loan</span><span class="p">,</span> <span class="n">time</span><span class="p">):</span>
+    <span class="n">principal</span> <span class="o">=</span> <span class="n">cts_loan</span><span class="p">[</span><span class="s2">&quot;Principal&quot;</span><span class="p">]</span>
+    <span class="n">interest</span> <span class="o">=</span> <span class="n">cts_loan</span><span class="p">[</span><span class="s2">&quot;Interest rate&quot;</span><span class="p">]</span>
+    
+    <span class="k">return</span> <span class="n">principal</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="n">interest</span><span class="o">*</span><span class="n">time</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">exp</span><span class="p">(</span><span class="n">interest</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">exp</span><span class="p">(</span><span class="n">interest</span><span class="o">*</span><span class="n">time</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By The Jupyter Book community<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
